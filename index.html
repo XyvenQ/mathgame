@@ -44,7 +44,8 @@
 			if (document.cookie.length < 1)
 				setCookie("ansHistory", "");
 			var decodedCookie = decodeURIComponent(document.cookie);
-			ansHistory = decodedCookie.replace("ansHistory=", "").replace(";", "").split("~");
+			if(decodedCookie.replace("ansHistory=", "").replace(";", "")!=="")
+				ansHistory = decodedCookie.replace("ansHistory=", "").replace(";", "").split("~");
 			ansHistory.forEach(element => {
 				var node = document.createElement("div");
 				node.setAttribute("class", "w3-auto w3-border w3-margin");
